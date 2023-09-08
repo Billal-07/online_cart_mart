@@ -17,15 +17,20 @@ module.exports = {
             )
         })
     },
-    
-    get_users : (body, callback) => {
-        const query = 'SELECT * FROM users'
 
-        pool.getConnection((err, connection) => {
-            if(err) return callback(err)
+    get_user : (callback) => {
+        const query = `SELECT * FROM users`
+
+        pool.getConnection((err, result) => {
+            if(err) callback(err)
 
             connection.query(
-                query,
+                query, null,
+                (err, result) => {
+                    connection.release()
+                    if(err) callback(err)
+                    else callback(null, result)
+                }    
             )
         })
     }
