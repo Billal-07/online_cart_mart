@@ -1,4 +1,3 @@
-const { query } = require('express')
 const pool = require('../../config/database')
 
 module.exports = {

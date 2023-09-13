@@ -11,4 +11,5 @@ router.get('/getUsers', get_user)
 router.get('/allUser/:id', user_by_Id)
 router.post('/userLogin', userLogin)
 router.post('/signUp', create_user)
+
 module.exports = router
