@@ -4,6 +4,7 @@ const port = 5000
 
 const userRouter = require('./api/user/user.router')
 const adminRouter = require('./api/admins/admins.router')
+const productRouter = require('./api/products/products.router')
 
 app.use(express.json())
 
@@ -17,6 +18,7 @@ app.use(function (req, res, next) {
 
 app.use('/api/user', userRouter)
 app.use('/api/admin', adminRouter)
+app.use('/api/product', productRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

@@ -18,17 +18,16 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         fetch('http://localhost:5000/api/admin/signUp', {
-            method: 'POST',
-            body: JSON.stringify({
-                name: adName,
-                email: adEmail,
-                password: adPassword
+            method : 'POST',
+            body : JSON.stringify({
+                name : adName,
+                email : adEmail,
+                password : adPassword
             }),
-            headers: 'content-type : application/json ; charset = UTF-8'
+            headers : {'Content-type' : 'application/json ; charset = UTF-8'}
         })
-            .then((response) => response.json())
-            .catch((err) => console.log(err.message))
     }
+
     return (
         <div>
             <form>

@@ -23,7 +23,7 @@ const User_SignUp = () => {
                 email : UEmail,
                 passowrd : uPassword
             }),
-            headers : 'content-type : application/json ; charset = UTF-8'
+            headers : {'content-type' : 'application/json ; charset = UTF-8'}
         })
         .then((response) => {response.json()})
         .catch((err) => {console.log(err.message)})
