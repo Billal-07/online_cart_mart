@@ -1,82 +1,51 @@
-import React from 'react'
-import { useState } from 'react';
+import { React, useState } from 'react'
 
 const NavBar = () => {
+
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleNavbar = () => {
+  const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="bg-blue-500 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-xl font-semibold">My App</div>
-        <div className="lg:hidden">
+    <nav>
+      {/* --> Navbar For Mobile <-- */}
+      <div className='p-3 flex max-w-full opacity-100 justify-between'>
+        <div className='text-white'>LOGO FOR THE SITE</div>
+        <div className=''>
           <button
-            onClick={toggleNavbar}
-            className="text-white focus:outline-none focus:shadow-outline"
+            type="button"
+            onClick={toggleDropdown}
+            className="w-20 rounded border-2 border-purple-800 flex justify-center"
           >
-            <svg
-              className="w-6 h-6 fill-current"
-              viewBox="0 0 24 24"
+           <svg
               xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-purple-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              {isOpen ? (
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M2 6H22V8H2V6ZM2 11H22V13H2V11ZM2 16H22V18H2V16Z"
-                />
-              ) : (
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"
-                />
-              )}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
-        </div>
-        <div className={`lg:flex ${isOpen ? 'block' : 'hidden'}`}>
-          <ul className="lg:flex items-center space-x-4">
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300 "
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300 "
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition duration-300 "
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+          {isOpen && (
+            <div className="grid w-20">
+              <a className='text-center rounded mt-2 bg-white border-4 border-purple-800 cursor-pointer'>Home</a>
+              <a className='text-center rounded mt-2 bg-white border-4 border-purple-800 cursor-pointer'>Contact</a>
+              <a className='text-center rounded mt-2 bg-white border-4 border-purple-800 cursor-pointer'>About Us</a>
+              <a className='text-center rounded mt-2 bg-white border-4 border-purple-800 cursor-pointer'>Products</a>
+            </div>
+          )}
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default NavBar
