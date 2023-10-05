@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../Images/cm.png'
 const MyFooter = () => {
   return (
-    <footer className="rounded-lg shadow dark:bg-gray-900">
+    <footer className="rounded-lg shadow">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a href="#" className="grid items-center mb-4 sm:mb-0">
